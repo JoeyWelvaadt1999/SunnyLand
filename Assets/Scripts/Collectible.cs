@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour {
 
+    public delegate void OnHitDelegate();
+    public static event OnHitDelegate OnHitEvent;
+
+    private Animator _anim;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+        _anim = GetComponent<Animator>();
 	}
 
-    ///TO DO
-    ///collision with player
-    ///send signal that player collided [delegate]
-    ///dispose cherry sprite
-    ///play item feedback animation
-    ///destroy self
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == Constants.PLAYERTAG)
+        {
+            //OnHitEvent();
+            _anim.Play(Constants.ITEMFEEDBACKANIMATION);
+        }
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
