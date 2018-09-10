@@ -8,16 +8,21 @@ public class Score : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Collectible.OnHitEvent += UpdateScore;
+        PlayerHealth.OnDeathEvent += Unsubscribe;
 	}
 
     void UpdateScore()
     {
         _score++;
+        Debug.Log("Score is " + _score);
     }
 
-    ///TO DO
-    ///subscribe to Collectible delegate
-    ///do something in score
-    ///display it [in log at least]
+    void Unsubscribe()
+    {
+        Collectible.OnHitEvent -= UpdateScore;
+        PlayerHealth.OnDeathEvent -= Unsubscribe;
+    }
+
+    
 }

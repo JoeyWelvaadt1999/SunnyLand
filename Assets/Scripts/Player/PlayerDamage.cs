@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour {
 
+    public delegate void PlayerDamageDelegate();
+    public static event PlayerDamageDelegate OnDamageEvent;
 
+    public delegate void EnemyHitDelegate();
+    public static event EnemyHitDelegate OnEnemyHitEvent;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == Constants.ENEMYTAG)
+        {
+            if (collision.gameObject.transform.position.y < transform.position.y + transform.position.y *.5f)//TEST DISTANCE WITH JUMP
+            {
+                Debug.Log("hit the beast");
+                //OnEnemyHitEvent();
+                //Destroy(collision.gameObject);
+            }
+            else
+            {
+                OnDamageEvent();
+            }
+        }
+    }
 }

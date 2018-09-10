@@ -25,5 +25,10 @@ public class TestPlayerScript : MonoBehaviour {
         {
             transform.Translate(Vector2.right * _moveSpeed * Time.deltaTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            //test jump here
+        }
 	}
 }
