@@ -9,14 +9,22 @@ public class CameraMovement : MonoBehaviour {
 
     private GameObject _target;
 
+    private bool _followPlayer;
+
 	// Use this for initialization
 	void Start () {
         _target = GameObject.FindGameObjectWithTag(Constants.PLAYERTAG);
+        PlayerHealth.OnDeathEvent += SetFollowPlayerValue;
+        _followPlayer = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        MoveCamera();
+        if (_followPlayer)
+        {
+            MoveCamera();
+        }
+        //MoveCamera();
     }
 
     void MoveCamera()
@@ -25,5 +33,10 @@ public class CameraMovement : MonoBehaviour {
         float posY = Mathf.SmoothDamp(transform.position.y, _target.transform.position.y, ref _velocity.y, _smoothTimeY);
 
         transform.position = new Vector3(posX, posY, transform.position.z);
+    }
+
+    void SetFollowPlayerValue()
+    {
+        _followPlayer = false;
     }
 }

@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour {
         else
         {
             _healthPoints--;
+            _livesText.text = "Lives " + _healthPoints.ToString();
             OnDeathEvent();
             PlayerDamage.OnDamageEvent -= DecreaseHealthPoints;
             Die();
