@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJump : JumpBase {
-	
 
-	void Update () {
+    void Update () {
 		InputCallback ic = new InputCallback();
 		ic.KeyDown = Jump;
 
