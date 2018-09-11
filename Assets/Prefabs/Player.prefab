@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0cc8234ab23450fb966ccf652151fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: {x: 0, y: 5}
+  _jumpForce: {x: 0, y: 6}
 --- !u!114 &114456248160455952
 MonoBehaviour:
   m_ObjectHideFlags: 1
