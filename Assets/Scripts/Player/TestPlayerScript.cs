@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class TestPlayerScript : MonoBehaviour {
 
-    private float _moveSpeed = 10f;
-    private float _jumpForce = 10f;
-    private bool _isGrounded;
-
-    private Rigidbody2D rb2D;
+    private float _moveSpeed = 3f;
+    
 
 	// Use this for initialization
 	void Start () {
-        rb2D = GetComponent<Rigidbody2D>();
+        
 	}
 	
 	// Update is called once per frame
@@ -24,11 +21,6 @@ public class TestPlayerScript : MonoBehaviour {
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector2.right * _moveSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            //test jump here
         }
 	}
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61606066798818398}
   m_Layer: 12
   m_Name: TriggerBox
-  m_TagString: Enemy
+  m_TagString: Possum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 95395078725122888}
   - component: {fileID: 50540351394570740}
   - component: {fileID: 61169567075996486}
+  - component: {fileID: 114100056390761506}
   m_Layer: 9
   m_Name: Opposum
   m_TagString: Untagged
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460649695582226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4243426, y: -1.5, z: 0}
+  m_LocalPosition: {x: -8.62, y: -3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4269654114768526}
@@ -130,7 +131,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19739163, y: -0.18700242}
+  m_Offset: {x: -0.20981741, y: 0.2106272}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -141,7 +142,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7480104, y: 1.2493367}
+  m_Size: {x: 1.5243444, y: 0.1558559}
   m_EdgeRadius: 0
 --- !u!95 &95395078725122888
 Animator:
@@ -160,6 +161,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114100056390761506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460649695582226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f1e01ec06adb84aa0aca04c7e4f5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212710577445866772
 SpriteRenderer:
   m_ObjectHideFlags: 1
