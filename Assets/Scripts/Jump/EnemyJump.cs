@@ -10,11 +10,9 @@ public class EnemyJump : JumpBase {
 		_currentTime += Time.deltaTime;
 
 		if (_currentTime >= _jumpDelay) {
-			if (_isGrounded) {
-				Jump ();
-				_jumpForce = new Vector2 (-_jumpForce.x, _jumpForce.y);
-				_currentTime = 0;
-			}
+			Jump ();
+			_jumpForce = new Vector2 (-_jumpForce.x, _jumpForce.y);
+			_currentTime = 0;
 		}
 	}
 }

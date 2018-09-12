@@ -1,31 +1,23 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Score : MonoBehaviour {
 
-    public Text _scoreText;
     private int _score;
 
 	// Use this for initialization
 	void Start () {
-        Collectible.OnHitEvent += UpdateScore;
-        PlayerHealth.OnDeathEvent += Unsubscribe;
-
-        _score = 0;
+		
 	}
 
     void UpdateScore()
     {
         _score++;
-        _scoreText.text = "Score: " + _score.ToString();
     }
 
-
-    void Unsubscribe()
-    {
-        Collectible.OnHitEvent -= UpdateScore;
-        PlayerHealth.OnDeathEvent -= Unsubscribe;
-    }
-
-    
+    ///TO DO
+    ///subscribe to Collectible delegate
+    ///do something in score
+    ///display it [in log at least]
 }

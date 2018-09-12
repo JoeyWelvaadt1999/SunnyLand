@@ -16,10 +16,16 @@ public class JumpBase : MonoBehaviour {
 		if (_isGrounded) {
 			_isGrounded = false;
 			_rb2d.AddForce (_jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Jump");
 		}
 	}
 
 	private void OnCollisionEnter2D(){
 		_isGrounded = true;	
 	}
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _isGrounded = false;
+    }
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using UnityEngine;/*
 
 public class CameraMovement : MonoBehaviour {
     
@@ -40,3 +40,4 @@ public class CameraMovement : MonoBehaviour {
         _followPlayer = false;
     }
 }
+*/
