@@ -10,10 +10,15 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimationHandler _animHandler;
 
+    private float _facingDir;
+    private string _facing;
+
     void Start()
     {
         _animHandler = GetComponent<PlayerAnimationHandler>();
         _playerJump = GetComponent<PlayerJump>();
+        _facingDir = Constants.FACINGVALUE;
+        _facing = Constants.FACINGRIGHT;
     }
 
     //using FixedUpdate and normalizing the vector so that the collision doesn't jitter with transform.Translate
@@ -27,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
+            Flip(Constants.FACINGLEFT);
             if (_playerJump.GetGrounded)
             {
                 _animHandler.AnimState = Constants.PLAYERRUN;
@@ -35,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
+            Flip(Constants.FACINGRIGHT);
             if (_playerJump.GetGrounded)
             {
                 _animHandler.AnimState = Constants.PLAYERRUN;
@@ -52,6 +59,20 @@ public class PlayerMovement : MonoBehaviour
             {
                 _animHandler.AnimState = Constants.PLAYERIDLE;
             }
+        }
+    }
+
+    void Flip(string currentface)
+    {
+        if (currentface != _facing)
+        {
+            _facing = currentface;
+
+            Vector3 localScale = transform.localScale;
+
+            localScale.x *= _facingDir;
+
+            transform.localScale = localScale;
         }
     }
 }

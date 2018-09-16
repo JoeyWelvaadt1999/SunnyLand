@@ -16,11 +16,12 @@ public class PlayerJump : JumpBase
 
     void Update()
     {
+        //put the keyboard input in an if statement for times jumped for doublejump
+        
         InputCallback ic = new InputCallback();
         ic.KeyDown = Jump;
 
         KeyboardInput.AddToDict(KeyCode.Space, ic);
-
 
         //jump animation handling
         if (!_isGrounded)

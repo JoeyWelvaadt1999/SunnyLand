@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class WinningHandler : MonoBehaviour {
     
     public Text _winText;
+    public delegate void WonTheGame();
+    public static event WonTheGame WonTheGameEvent;
+    
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +16,9 @@ public class WinningHandler : MonoBehaviour {
         {
             //show text that you have won and sent event so that player plays final animation
             _winText.text = "YOU WIN!";
+            //WonTheGameEvent();
+            
+            //add restart and quit button [or enable]
         }
     }
 }
