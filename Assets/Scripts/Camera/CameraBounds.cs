@@ -28,8 +28,6 @@ public class CameraBounds : MonoBehaviour {
         if (tPos.x - _width / 2 > _maxLeft.position.x && tPos.x + _width / 2 < _maxRight.position.x) {
             return true;
         }
-        Debug.Log(false);
-
         return false;
     }
 }

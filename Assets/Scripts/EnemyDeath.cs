@@ -10,9 +10,9 @@ public class EnemyDeath : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //PlayerDamage.OnEnemyDeathEvent += CompareGameObjectTags;
+        PlayerDamage.OnEnemyDeathEvent += CompareGameObjectTags;
         _anim = GetComponent<Animator>();
-        _childTransform = gameObject.transform.GetChild(0);
+        _childTransform = transform.GetChild(0);
 	}
 
     void CompareGameObjectTags(string tag)
@@ -25,12 +25,12 @@ public class EnemyDeath : MonoBehaviour {
 
     void StartDeathProcess()
     {
-        //_anim.Play(Constants.ENEMYDEATHANIMATION);
+        _anim.Play(Constants.ENEMYDEATHANIMATION);
     }
 
     void Die()
     {
-        //PlayerDamage.OnEnemyDeathEvent -= CompareGameObjectTags;
+        PlayerDamage.OnEnemyDeathEvent -= CompareGameObjectTags;
         Destroy(gameObject);
     }
 }

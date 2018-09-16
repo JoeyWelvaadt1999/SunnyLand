@@ -8,7 +8,7 @@ public class JumpBase : MonoBehaviour {
 	protected Rigidbody2D _rb2d;
 	protected bool _isGrounded;
 
-	private void Start() {
+	protected virtual void Start() {
 		_rb2d = GetComponent<Rigidbody2D> ();
 	}
 
@@ -16,16 +16,20 @@ public class JumpBase : MonoBehaviour {
 		if (_isGrounded) {
 			_isGrounded = false;
 			_rb2d.AddForce (_jumpForce, ForceMode2D.Impulse);
-            Debug.Log("Jump");
 		}
 	}
 
-	private void OnCollisionEnter2D(){
+	private void OnCollisionEnter2D(Collision2D collision){
 		_isGrounded = true;	
 	}
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         _isGrounded = false;
+    }
+
+    public bool GetGrounded
+    {
+        get { return _isGrounded; }
     }
 }

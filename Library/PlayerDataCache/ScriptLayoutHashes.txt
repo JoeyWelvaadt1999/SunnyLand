@@ -2,7 +2,7 @@ WindowsStandalone
 SceneListBegin?
 Assets/Scenes/test_bart.unity
 SceneListEnd?
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraMovement
+f54165366759702889142ee3d0dc94f1 Assembly-CSharp.dll:.CameraMovement
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Collectible
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -120,7 +120,8 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
-1bfef5950b7402172454ddfa67f3fb08 Assembly-CSharp.dll:.PlayerMovement
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerAnimationHandler
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerMovement
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TestPlayerScript
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
@@ -154,3 +155,5 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 351a7d320a32d972d09158cedbc6c8df Assembly-CSharp.dll:.ParallaxMovement
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnemyDeath
+9c0e3553e3ab122aa1f6a2c04708a6a7 Assembly-CSharp.dll:.CameraBounds
+860a565576124c93ed692c8aec93e06c Assembly-CSharp.dll:.WinningHandler

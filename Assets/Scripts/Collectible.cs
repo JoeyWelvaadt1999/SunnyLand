@@ -18,7 +18,7 @@ public class Collectible : MonoBehaviour {
     {
         if (collision.gameObject.tag == Constants.PLAYERTAG)
         {
-            //OnHitEvent();
+            OnHitEvent();
             _anim.Play(Constants.ITEMFEEDBACKANIMATION);
         }
     }

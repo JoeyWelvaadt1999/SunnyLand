@@ -2,21 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-	[SerializeField]private float _movementSpeed;
+public class PlayerMovement : MonoBehaviour
+{
+    private float _moveSpeed = 5f;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		float x = Input.GetAxis ("Horizontal");
+    private PlayerJump _playerJump;
 
-		Vector2 tPos = transform.position;
-		tPos.x += (x * _movementSpeed) * Time.deltaTime;
-		tPos.y = tPos.y;
-		transform.position = tPos;
-	}
+    private PlayerAnimationHandler _animHandler;
+
+    void Start()
+    {
+        _animHandler = GetComponent<PlayerAnimationHandler>();
+        _playerJump = GetComponent<PlayerJump>();
+    }
+
+    //using FixedUpdate and normalizing the vector so that the collision doesn't jitter with transform.Translate
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
+            if (_playerJump.GetGrounded)
+            {
+                _animHandler.AnimState = Constants.PLAYERRUN;
+            }
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
+            if (_playerJump.GetGrounded)
+            {
+                _animHandler.AnimState = Constants.PLAYERRUN;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.X) && _playerJump.GetGrounded)
+        {
+            //dash
+            Debug.Log("Dash");
+            _animHandler.AnimState = Constants.PLAYERDASH;
+        }
+        else
+        {
+            if (_playerJump.GetGrounded)
+            {
+                _animHandler.AnimState = Constants.PLAYERIDLE;
+            }
+        }
+    }
 }

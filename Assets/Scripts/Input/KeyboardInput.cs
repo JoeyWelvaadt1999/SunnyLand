@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyboardInput : MonoBehaviour {
 	private static Dictionary<KeyCode, InputCallback> _inputs = new Dictionary<KeyCode, InputCallback>();
 
-	private void Update() {
+	private void FixedUpdate() {
 		if (_inputs.Count == 0)
 			return;
 

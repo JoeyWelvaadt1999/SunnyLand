@@ -10,9 +10,9 @@ public class PlayerBounce : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _rd2b = GetComponent<Rigidbody2D>();
-        //PlayerDamage.OnEnemyHitEvent += Bounce;
-        //PlayerHealth.OnDeathEvent += Unsubscribe;
-        _bounceForce = new Vector2(0, 5);
+        PlayerDamage.OnEnemyHitEvent += Bounce;
+        PlayerHealth.OnDeathEvent += Unsubscribe;
+        _bounceForce = new Vector2(0, 7);
 	}
 
     void Bounce()
@@ -22,7 +22,7 @@ public class PlayerBounce : MonoBehaviour {
 
     void Unsubscribe()
     {
-        //PlayerDamage.OnEnemyHitEvent -= Bounce;
-        //PlayerHealth.OnDeathEvent -= Unsubscribe;
+        PlayerDamage.OnEnemyHitEvent -= Bounce;
+        PlayerHealth.OnDeathEvent -= Unsubscribe;
     }
 }

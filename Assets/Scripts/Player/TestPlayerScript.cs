@@ -5,25 +5,22 @@ using UnityEngine;
 public class TestPlayerScript : MonoBehaviour {
 
     private float _moveSpeed = 10f;
-    private float _jumpForce = 10f;
-    private bool _isGrounded;
 
-    private Rigidbody2D rb2D;
-
-	// Use this for initialization
-	void Start () {
-        rb2D = GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    //using FixedUpdate and normalizing the vector so that the collision doesn't jitter
+    void FixedUpdate()
+    {
+        Move();
+    }
+    
+    void Move()
+    {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector2.left * _moveSpeed * Time.deltaTime);
+            transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector2.right * _moveSpeed * Time.deltaTime);
+            transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
         }
-	}
+    }
 }

@@ -20,7 +20,7 @@ TagManager:
   - EnemyCollision
   - PlayerCollision
   - CollectibleCollision
-  - DamageCollision
+  - BounceCollision
   - 
   - 
   - 

@@ -13,7 +13,6 @@ public class EnemyMovement : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (transform.position, _path [_index].position, _speed);
 
 		if (transform.position == _path [_index].position) {
-			Debug.Log ("position equals");
 			if (_forward) {
 				_index++;
 			} else {
