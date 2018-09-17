@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour {
 
+    private PlayerAnimationHandler _playerAnim;
+
     public delegate void PlayerDamageDelegate();
     public static event PlayerDamageDelegate OnDamageEvent;
 
@@ -13,25 +15,46 @@ public class PlayerDamage : MonoBehaviour {
     public delegate void EnemyDeathEvent(string tag);
     public static event EnemyDeathEvent OnEnemyDeathEvent;
 
-    private float _offset;
+    private Collider2D _collider;
+
+    private PlayerHealth _playerhealth;
+
+
+    private void Start()
+    {
+        _playerAnim = GetComponent<PlayerAnimationHandler>();
+        _collider = GetComponent<Collider2D>();
+        _playerhealth = GetComponent<PlayerHealth>();
+        IsDamaged = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _offset = transform.position.y * Constants.HALFPLAYERSIZE;
-
-        if (collision.gameObject.tag == Constants.POSSUMTAG)
+        //check wether you are colliding with one of the enemies
+        if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG)
         {
-            if (collision.gameObject.transform.position.y > transform.position.y + _offset)
+            if (collision.bounds.center.y < _collider.bounds.center.y)
             {
                 OnEnemyHitEvent();
                 OnEnemyDeathEvent(collision.gameObject.tag);
             }
             else
             {
+                if (_playerhealth.GetHealthPoints > 1f)
+                {
+                    IsDamaged = true;
+                }
+                _playerAnim.AnimState = Constants.PLAYERDAMAGE;
                 OnDamageEvent();
             }
         }
     }
 
+    void SetDamaged()
+    {
+        IsDamaged = false;
+    }
 
+
+    public bool IsDamaged { get; private set; }
 }

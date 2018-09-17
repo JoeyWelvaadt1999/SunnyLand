@@ -9,13 +9,22 @@ public class EnemyMovement : MonoBehaviour {
 
 	private bool _forward = true;
 
-	private void Update() {
+    private SpriteFlipper _flipper;
+
+    private void Start()
+    {
+        _flipper = GetComponent<SpriteFlipper>();
+    }
+
+    private void Update() {
 		transform.position = Vector3.MoveTowards (transform.position, _path [_index].position, _speed);
 
 		if (transform.position == _path [_index].position) {
 			if (_forward) {
+                _flipper.Flip(Constants.FACINGLEFT);
 				_index++;
 			} else {
+                _flipper.Flip(Constants.FACINGRIGHT);
 				_index--;
 			}
 		}

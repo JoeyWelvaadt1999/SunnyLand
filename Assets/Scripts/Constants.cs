@@ -13,6 +13,7 @@ public class Constants {
     public static string ENEMYTAG => "Enemy";
     public static string FROGTAG => "Frog";
     public static string POSSUMTAG => "Possum";
+    public static string EAGLETAG => "Eagle";
 
     //The player animations that are tied to an integer in the animator component
     public static int PLAYERIDLE => 0;
@@ -22,6 +23,13 @@ public class Constants {
     public static int PLAYERFALL => 4;
     public static int PLAYERDASH => 5;
     public static int PLAYERWIN => 6;
+    public static int PLAYERDEATH => 7;
+
+    //the frog enemy animations that are tied to an integer in the animator component
+    public static int FROGIDLE => 0;
+    public static int FROGRISE => 1;
+    public static int FROGFALL => 2;
+    public static int FROGDEATH => 3;
 
     //some stats of the player
     public static int PLAYERJUMPAMOUNT => 2;
@@ -35,6 +43,8 @@ public class Constants {
 
     //collision layer mask number
     public static int PLATFORMLAYER => 8;
+    public static int PLAYERLAYER => 10;
 
-
+    //enemy max jump amount
+    public static int ENEMYJUMPAMOUNT => 1;
 }

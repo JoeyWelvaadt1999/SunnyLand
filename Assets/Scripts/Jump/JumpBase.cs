@@ -7,14 +7,20 @@ public class JumpBase : MonoBehaviour {
 	[SerializeField]protected Vector2 _jumpForce;
 	protected Rigidbody2D _rb2d;
 	protected bool _isGrounded;
+    protected int _maxJumps;
+    protected int _currentJumps;
     
 	protected virtual void Start() {
 		_rb2d = GetComponent<Rigidbody2D> ();
 	}
 
 	protected virtual void Jump() {
-		if (_isGrounded) {
-			_isGrounded = false;
+        if (_currentJumps < _maxJumps)
+        {
+            _currentJumps++;
+            Debug.Log(_isGrounded);
+            _isGrounded = false;
+            Debug.Log(_isGrounded);
             _rb2d.AddForce(_jumpForce, ForceMode2D.Impulse);
         }
 	}
@@ -23,6 +29,7 @@ public class JumpBase : MonoBehaviour {
         if (collision.gameObject.layer == Constants.PLATFORMLAYER)
         {
             _isGrounded = true;
+            _currentJumps = 0;
         }
 	}
 

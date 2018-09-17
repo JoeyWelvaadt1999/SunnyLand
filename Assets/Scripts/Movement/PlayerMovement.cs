@@ -7,8 +7,10 @@ public class PlayerMovement : MonoBehaviour
     private float _moveSpeed = 5f;
 
     private PlayerJump _playerJump;
+    private PlayerDamage _playerDamage;
 
     private PlayerAnimationHandler _animHandler;
+    private SpriteFlipper _flipper;
 
     private float _facingDir;
     private string _facing;
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _animHandler = GetComponent<PlayerAnimationHandler>();
         _playerJump = GetComponent<PlayerJump>();
+        _playerDamage = GetComponent<PlayerDamage>();
+        _flipper = GetComponent<SpriteFlipper>();
         _facingDir = Constants.FACINGVALUE;
         _facing = Constants.FACINGRIGHT;
     }
@@ -32,8 +36,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
-            Flip(Constants.FACINGLEFT);
-            if (_playerJump.GetGrounded)
+            //Flip(Constants.FACINGLEFT);
+            _flipper.Flip(Constants.FACINGLEFT);
+            if (_playerJump.GetGrounded && !_playerDamage.IsDamaged)
             {
                 _animHandler.AnimState = Constants.PLAYERRUN;
             }
@@ -41,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
-            Flip(Constants.FACINGRIGHT);
-            if (_playerJump.GetGrounded)
+            //Flip(Constants.FACINGRIGHT);
+            _flipper.Flip(Constants.FACINGRIGHT);
+            if (_playerJump.GetGrounded && !_playerDamage.IsDamaged)
             {
                 _animHandler.AnimState = Constants.PLAYERRUN;
             }
@@ -55,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (_playerJump.GetGrounded)
+            if (_playerJump.GetGrounded && !_playerDamage.IsDamaged)
             {
                 _animHandler.AnimState = Constants.PLAYERIDLE;
             }

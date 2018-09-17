@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour {
     public delegate void OnDeathDelegate();
     public static event OnDeathDelegate OnDeathEvent;
 
+    private PlayerAnimationHandler _playerAnim;
+
     private float _healthPoints;
     private float _finalHealthPoint;
     public Text _livesText;
@@ -15,6 +17,7 @@ public class PlayerHealth : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        _playerAnim = GetComponent<PlayerAnimationHandler>();
         _healthPoints = Constants.STARTINGHEALTHPOINTS;
         _finalHealthPoint = Constants.ONEHEALTHPOINT;
         PlayerDamage.OnDamageEvent += DecreaseHealthPoints;
@@ -32,19 +35,24 @@ public class PlayerHealth : MonoBehaviour {
         {
             _healthPoints--;
             UpdateUIHealthPoints();
-            OnDeathEvent();
-            PlayerDamage.OnDamageEvent -= DecreaseHealthPoints;
-            Die();
+            _playerAnim.AnimState = Constants.PLAYERDEATH;
         }
     }
 
     void Die()
     {
+        OnDeathEvent();
+        PlayerDamage.OnDamageEvent -= DecreaseHealthPoints;
         Destroy(gameObject);
     }
 
     void UpdateUIHealthPoints()
     {
         _livesText.text = "Lives: " + _healthPoints.ToString();
+    }
+
+    public float GetHealthPoints
+    {
+        get { return _healthPoints; }
     }
 }
