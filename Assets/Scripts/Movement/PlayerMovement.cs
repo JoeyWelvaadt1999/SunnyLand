@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     private BoxCollider2D _box2D;
 
+    private bool _isDashing;
+
+    private float _minDashForce = 2f;
+
     void Start()
     {
         _animHandler = GetComponent<PlayerAnimationHandler>();

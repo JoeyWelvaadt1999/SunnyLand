@@ -333,6 +333,7 @@
     <Compile Include="Assets\Scripts\Jump\EnemyJump.cs" />
     <Compile Include="Assets\Scripts\Jump\JumpBase.cs" />
     <Compile Include="Assets\Scripts\Jump\PlayerJump.cs" />
+    <Compile Include="Assets\Scripts\LoseHandler.cs" />
     <Compile Include="Assets\Scripts\Movement\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\Disabler.cs" />
