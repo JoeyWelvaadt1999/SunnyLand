@@ -8,10 +8,15 @@ public class EnemyDeath : MonoBehaviour {
 
     private Animator _anim;
 
+    private AudioSource[] _audioSource;
+    private AudioSource _deathAudio;
+
 	// Use this for initialization
 	void Start () {
         PlayerDamage.OnEnemyDeathEvent += CompareGameObjectTags;
         _anim = GetComponent<Animator>();
+        _audioSource = GetComponents<AudioSource>();
+        _deathAudio = _audioSource[1];
         _childTransform = transform.GetChild(0);
 	}
 
@@ -26,6 +31,7 @@ public class EnemyDeath : MonoBehaviour {
     void StartDeathProcess()
     {
         _anim.Play(Constants.ENEMYDEATHANIMATION);
+        _deathAudio.Play();
     }
 
     void Die()

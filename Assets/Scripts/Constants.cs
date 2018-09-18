@@ -51,8 +51,8 @@ public class Constants {
     public static string TUTORIALTEXT => "Welcome to Sunnyland \n" +
         "Moving is done with the left and right arrow keys \n" +
         "Jumping is done with the space bar \n" +
-        "Dash with X, so know let's try to find home! \n" +
-        "Be careful of some other animals, \n" +
+        "Downward jump with the Down arrow key \n" +
+        "Let's find home but be careful of some other animals! \n" +
         "Jump on them to get rid of them! \n" +
         "Get some cherries and gems on the way! \n" +
         "Have fun playing XD";

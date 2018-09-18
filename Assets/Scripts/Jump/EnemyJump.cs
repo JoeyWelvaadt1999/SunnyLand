@@ -8,7 +8,6 @@ public class EnemyJump : JumpBase {
     private Animator _anim;
     private SpriteFlipper _flipper;
     private float _lastY;
-    private bool lastUpdated = false;
 
     protected override void Start()
     {

@@ -6,17 +6,25 @@ using UnityEngine;
 public class JumpBase : MonoBehaviour {
 	[SerializeField]protected Vector2 _jumpForce;
 	protected Rigidbody2D _rb2d;
+    protected AudioSource[] _audioSource;
+    protected AudioSource _jumpAudio;
+    
 	protected bool _isGrounded;
     protected int _maxJumps;
     protected int _currentJumps;
+
+
     
 	protected virtual void Start() {
 		_rb2d = GetComponent<Rigidbody2D> ();
+        _audioSource = GetComponents<AudioSource>();
+        _jumpAudio = _audioSource[0];
 	}
 
 	protected virtual void Jump() {
         if (_currentJumps < _maxJumps)
         {
+            _jumpAudio.Play();
             _currentJumps++;
             _isGrounded = false;
             _rb2d.AddForce(_jumpForce, ForceMode2D.Impulse);

@@ -125,6 +125,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerMovement
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Disabler
 851427dba5a498cf40d6c63f5ce74f46 Assembly-CSharp.dll:.Score
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.KeyboardInput
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -158,5 +159,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EnemyDeath
 9c0e3553e3ab122aa1f6a2c04708a6a7 Assembly-CSharp.dll:.CameraBounds
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TextWriter
-e96b159eaa3f2f6e332cf5d89d35e08c Assembly-CSharp.dll:.LoseHandler
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Disabler

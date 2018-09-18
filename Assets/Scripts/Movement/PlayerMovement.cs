@@ -14,13 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     private BoxCollider2D _box2D;
 
-    private float _facingDir;
-    private string _facing;
-
-    private bool _isDashing;
-
-    private float _minDashForce = 2f;
-
     void Start()
     {
         _animHandler = GetComponent<PlayerAnimationHandler>();
@@ -28,9 +21,6 @@ public class PlayerMovement : MonoBehaviour
         _playerDamage = GetComponent<PlayerDamage>();
         _flipper = GetComponent<SpriteFlipper>();
         _box2D = GetComponent<BoxCollider2D>();
-        _facingDir = Constants.FACINGVALUE;
-        _facing = Constants.FACINGRIGHT;
-        _isDashing = false; ;
     }
 
     //using FixedUpdate and normalizing the vector so that the collision doesn't jitter with transform.Translate
@@ -73,11 +63,6 @@ public class PlayerMovement : MonoBehaviour
             _animHandler.AnimState = Constants.PLAYERDASH;
         }
 
-    }
-
-    bool GetIsDashing
-    {
-        get { return _isDashing; }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
