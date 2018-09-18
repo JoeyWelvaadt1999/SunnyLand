@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Player jump.
+/// The player jumps gets its functionallity from the jump base.
+/// </summary>
 [RequireComponent(typeof(PlayerAnimationHandler))]
 public class PlayerJump : JumpBase
 {

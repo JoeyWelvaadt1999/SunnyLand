@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player damage.
+/// </summary>
 public class PlayerDamage : MonoBehaviour {
 
     private PlayerAnimationHandler _playerAnim;
@@ -28,33 +31,37 @@ public class PlayerDamage : MonoBehaviour {
         IsDamaged = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //check wether you are colliding with one of the enemies
-        if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG)
-        {
-            if (collision.bounds.center.y < _collider.bounds.center.y)
-            {
-                OnEnemyHitEvent();
-                OnEnemyDeathEvent(collision.gameObject.tag);
-            }
-            else
-            {
-                if (_playerhealth.GetHealthPoints > 1f)
-                {
-                    IsDamaged = true;
-                }
-                _playerAnim.AnimState = Constants.PLAYERDAMAGE;
-                OnDamageEvent();
-            }
-        }
-    }
 
-    void SetDamaged()
-    {
-        IsDamaged = false;
-    }
+	//checks for triggering collision
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		//check wether you are colliding with one of the enemies
+		if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG)
+		{
+			//checks to see if the enemy collider bounds center point are lower than the player collider bounds center point
+			if (collision.bounds.center.y < _collider.bounds.center.y)
+			{
+				OnEnemyHitEvent();
+				OnEnemyDeathEvent(collision.gameObject.tag);
+			}
+			else //if the player is lower he will get damage and appropriate animation will be set
+			{
+				if (_playerhealth.GetHealthPoints > 1f)
+				{
+					IsDamaged = true;
+				}
+				_playerAnim.AnimState = Constants.PLAYERDAMAGE;
+				OnDamageEvent();
+			}
+		}
+	}
 
+	//function that is called after the 'damaged' animation is over
+	void SetDamaged()
+	{
+		IsDamaged = false;
+	}
 
-    public bool IsDamaged { get; private set; }
+	//getter setter to get value if its being damaged so that the appropriate animations will be played
+	public bool IsDamaged { get; private set; }
 }

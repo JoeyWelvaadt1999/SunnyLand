@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Camera movement.
+/// The camera movemnt has a few variable the smoothTime x & y variable are there to later be used for smoothing out the camera movement. 
+/// The gameobject target is the object that the camera will be following.
+/// You will also notice that this script requires a component this component is camerabounds, this script needs it to make sure it will not move out of bounds.
+/// </summary>
 [RequireComponent(typeof(CameraBounds))]
 public class CameraMovement : MonoBehaviour {
     

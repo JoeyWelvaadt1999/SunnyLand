@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player animation handler.
+/// This class is a setup for the animations and sets the state when AnimState is called from another class.
+/// </summary>
 public class PlayerAnimationHandler : MonoBehaviour {
 
     private Animator _anim;

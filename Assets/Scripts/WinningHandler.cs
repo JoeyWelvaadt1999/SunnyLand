@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Winning handler.
+/// In this class we will check for a point, if this point is triggered then a delegate is called.
+/// </summary>
 public class WinningHandler : MonoBehaviour {
     
     public Text _winText;

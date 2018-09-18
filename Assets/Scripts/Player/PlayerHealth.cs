@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Player health.
+/// This class contains the player health. 
+/// </summary>
 public class PlayerHealth : MonoBehaviour {
 
-    public delegate void OnDeathDelegate();
+    public delegate void OnDeathDelegate(); //This delegate will activate when the player dies.
     public static event OnDeathDelegate OnDeathEvent;
     
-    private PlayerAnimationHandler _playerAnim;
+    private PlayerAnimationHandler _playerAnim; //An instance of the player animation handler.
 
-    private float _healthPoints;
+    private float _healthPoints; //This is the amount of health the player has.
     private float _finalHealthPoint;
     public Text _livesText;
 
@@ -24,6 +28,8 @@ public class PlayerHealth : MonoBehaviour {
         UpdateUIHealthPoints();
         WinningHandler.WonTheGameEvent += SetWinAnimation;
     }
+
+	//In this function the health is decreased by one everytime this function is called.
 
     void DecreaseHealthPoints()
     {
@@ -58,6 +64,8 @@ public class PlayerHealth : MonoBehaviour {
         WinningHandler.WonTheGameEvent -= SetWinAnimation;
     }
 
+
+	//This 'getter' returns the health point variable and is visible to other classes.
     public float GetHealthPoints
     {
         get { return _healthPoints; }

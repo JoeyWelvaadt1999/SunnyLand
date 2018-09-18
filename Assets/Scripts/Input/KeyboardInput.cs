@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Keyboard input.
+/// This class is used for a generic keyboard input.
+/// </summary>
 public class KeyboardInput : MonoBehaviour {
-	private static Dictionary<KeyCode, InputCallback> _inputs = new Dictionary<KeyCode, InputCallback>();
+	private static Dictionary<KeyCode, InputCallback> _inputs = new Dictionary<KeyCode, InputCallback>();//This variable saves all keycodes together with a inputcallback, the inputcallback is explained in another class.
 
+	//Every frame we will check if the inputs dictionary has 1 or more indexes, if so we will loop through all possible keycodes to check
+	//if the input dictionary contains this keycode. If this is the case check for all three sorts of key press if the input callback has a function.
+	//Then call this method.
 	private void FixedUpdate() {
 		if (_inputs.Count == 0)
 			return;
@@ -30,6 +37,8 @@ public class KeyboardInput : MonoBehaviour {
 		}
 	}
 
+
+	//In this function you will be able to add a key with a inputcallback to the dictionary.
 	public static void AddToDict(KeyCode key, InputCallback value) {
 		if (!_inputs.ContainsKey(key)) {
 			_inputs.Add (key, value);

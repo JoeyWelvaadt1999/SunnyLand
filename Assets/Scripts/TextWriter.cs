@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Text writer.
+/// This class wirtes text with an interval, the _writingPause variable indactes how long of a delay is needed between putting a new letter on the screen.
+/// </summary>
 public class TextWriter : MonoBehaviour {
 
     private float _writingPause = .03f;

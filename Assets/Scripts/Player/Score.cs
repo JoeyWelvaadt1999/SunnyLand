@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Score.
+/// This class keeps track of the player score and puts it on screen.
+/// </summary>
 public class Score : MonoBehaviour {
 
     public Text _scoreText;
     private int _score;
 
-    // Use this for initialization
+    
+	// In this function will everything be initialized and the delegates will be added. 
     void Start()
     {
         Collectible.OnHitEvent += UpdateScore;
@@ -22,7 +27,7 @@ public class Score : MonoBehaviour {
         SetScoreUI();
     }
 
-
+	//Here the delegates will be removed so that they cant be called anymore.
     void Unsubscribe()
     {
         Collectible.OnHitEvent -= UpdateScore;

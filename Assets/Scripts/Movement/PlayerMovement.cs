@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Player movement.
+/// This class wil be taking care of the walking movement of the player.
+/// It will also take care of the walking animation and idle animation.
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    private float _moveSpeed = 5f;
+    private float _moveSpeed = 5f; //This variable will indicate the speed of the player, this is not the final speed because it will be altered in a sum.
 
-    private PlayerJump _playerJump;
-    private PlayerDamage _playerDamage;
+    private PlayerJump _playerJump; // This is an instance to the player jump script.
+	private PlayerDamage _playerDamage; // This is an instance to the player damage script.
 
-    private PlayerAnimationHandler _animHandler;
-    private SpriteFlipper _flipper;
+	private PlayerAnimationHandler _animHandler; // This is an instance to the player animation handler script.
+	private SpriteFlipper _flipper; // This is an instance to the sprite flipper script.
 
     private BoxCollider2D _box2D;
     
+	//In the start function all the variable will be initialized.
+
     void Start()
     {
         _animHandler = GetComponent<PlayerAnimationHandler>();
@@ -29,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+	//The move function checks if a key is pressed, lets say the left key is pressed, then the following this happen.
+	//The player moves to the left, flips to the left and plays a run animation if the player is standing on the ground and is currently not 
+	//being damaged, same goes for the right.
+	//If the down arrow is pressed then the player will dash towards the direction he is facing.
+	//In the case that none of these buttons are pressed, meaning the player is standing still. The idle animation will play.
     void Move()
     {
         if (Input.GetKey(KeyCode.LeftArrow))

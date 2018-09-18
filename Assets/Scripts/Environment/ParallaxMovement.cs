@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Parallax movement.
+/// This class will give a certain effect to the level layout. When the player moves right the background moves left, which makes it look more like the player is actually walking.
+/// </summary>
 public class ParallaxMovement : MonoBehaviour {
     [SerializeField] private float _speed;
     private Vector3 _startPos;
@@ -10,7 +14,7 @@ public class ParallaxMovement : MonoBehaviour {
         _startPos = transform.position;
 	}
 	
-	// Update is called once per frame
+	// Every frame this function checks which way the player is walking and will move this object the opposite way.
 	void Update () {
         float x = Input.GetAxis("Horizontal");
 

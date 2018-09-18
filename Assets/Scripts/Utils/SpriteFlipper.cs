@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Sprite flipper.
+/// This class flips a sprite from left to right.
+/// </summary>
 public class SpriteFlipper : MonoBehaviour {
 
     private float _facingDir;

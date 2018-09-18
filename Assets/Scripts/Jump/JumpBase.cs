@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Jump base.
+/// The jump base defines al functions that are needed for the enemy jump and player jump. It also has a required component rigidbody 2d 
+/// this is used to add force to the player or enemy so it can jump.
+/// It also checks whether the player or enemy is standing on the ground and is able to jump.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class JumpBase : MonoBehaviour {
 	[SerializeField]protected Vector2 _jumpForce;

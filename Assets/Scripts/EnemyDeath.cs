@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy death.
+/// </summary>
 public class EnemyDeath : MonoBehaviour {
 
     private Transform _childTransform;
@@ -20,23 +23,26 @@ public class EnemyDeath : MonoBehaviour {
         _childTransform = transform.GetChild(0);
 	}
 
-    void CompareGameObjectTags(string tag)
-    {
-        if (tag == _childTransform.tag)
-        {
-            StartDeathProcess();
-        }
-    }
+	//method subscribed to the Playerdamage event that checks with enemy has to respond
+	void CompareGameObjectTags(string tag)
+	{
+		if (tag == _childTransform.tag)
+		{
+			StartDeathProcess();
+		}
+	}
 
-    void StartDeathProcess()
-    {
-        _anim.Play(Constants.ENEMYDEATHANIMATION);
-        _deathAudio.Play();
-    }
+	//playing the death animation and the death sound
+	void StartDeathProcess()
+	{
+		_anim.Play(Constants.ENEMYDEATHANIMATION);
+		_deathAudio.Play();
+	}
 
-    void Die()
-    {
-        PlayerDamage.OnEnemyDeathEvent -= CompareGameObjectTags;
-        Destroy(gameObject);
-    }
+	//method that is called when the death animation reaches its end
+	void Die()
+	{
+		PlayerDamage.OnEnemyDeathEvent -= CompareGameObjectTags;
+		Destroy(gameObject);
+	}
 }

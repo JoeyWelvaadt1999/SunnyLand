@@ -1,7 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Enemy jump.
+/// This class will make the enemy jump, it has the variable jump delay which is used to make the enemy wait after each jump.
+/// Everytime the enemy jumps the delay resets and starts again.
+/// The last y variable is used to check if the enemy is traveling downwards to set an animation.
+/// </summary>
 public class EnemyJump : JumpBase {
 	[SerializeField]private float _jumpDelay;
 	private float _currentTime;

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Collectible.
+/// This class will check if an collectible is hit, if so the collectible will be destroyed after playing an animation and a sound.
+/// </summary>
 public class Collectible : MonoBehaviour {
 
     public delegate void OnHitDelegate();

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Player bounce.
+/// The bounce class adds a upwards force to the player.
+/// </summary>
 public class PlayerBounce : MonoBehaviour {
 
     private Rigidbody2D _rd2b;
