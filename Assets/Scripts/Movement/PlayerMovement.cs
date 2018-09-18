@@ -12,8 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimationHandler _animHandler;
     private SpriteFlipper _flipper;
 
+    private BoxCollider2D _box2D;
+
     private float _facingDir;
     private string _facing;
+
+    private bool _isDashing;
+
+    private float _minDashForce = 2f;
 
     void Start()
     {
@@ -21,8 +27,10 @@ public class PlayerMovement : MonoBehaviour
         _playerJump = GetComponent<PlayerJump>();
         _playerDamage = GetComponent<PlayerDamage>();
         _flipper = GetComponent<SpriteFlipper>();
+        _box2D = GetComponent<BoxCollider2D>();
         _facingDir = Constants.FACINGVALUE;
         _facing = Constants.FACINGRIGHT;
+        _isDashing = false; ;
     }
 
     //using FixedUpdate and normalizing the vector so that the collision doesn't jitter with transform.Translate
@@ -36,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
-            //Flip(Constants.FACINGLEFT);
             _flipper.Flip(Constants.FACINGLEFT);
             if (_playerJump.GetGrounded && !_playerDamage.IsDamaged)
             {
@@ -46,18 +53,11 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
-            //Flip(Constants.FACINGRIGHT);
             _flipper.Flip(Constants.FACINGRIGHT);
             if (_playerJump.GetGrounded && !_playerDamage.IsDamaged)
             {
                 _animHandler.AnimState = Constants.PLAYERRUN;
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.X) && _playerJump.GetGrounded)
-        {
-            //dash
-            Debug.Log("Dash");
-            _animHandler.AnimState = Constants.PLAYERDASH;
         }
         else
         {
@@ -66,19 +66,22 @@ public class PlayerMovement : MonoBehaviour
                 _animHandler.AnimState = Constants.PLAYERIDLE;
             }
         }
+
+        if (Input.GetKey(KeyCode.DownArrow) && _playerJump.GetGrounded && !_playerDamage.IsDamaged)
+        {
+            _box2D.isTrigger = true;
+            _animHandler.AnimState = Constants.PLAYERDASH;
+        }
+
     }
 
-    void Flip(string currentface)
+    bool GetIsDashing
     {
-        if (currentface != _facing)
-        {
-            _facing = currentface;
+        get { return _isDashing; }
+    }
 
-            Vector3 localScale = transform.localScale;
-
-            localScale.x *= _facingDir;
-
-            transform.localScale = localScale;
-        }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _box2D.isTrigger = false;
     }
 }

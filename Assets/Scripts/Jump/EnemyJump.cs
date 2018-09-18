@@ -52,6 +52,4 @@ public class EnemyJump : JumpBase {
             _lastY = currY;
         }
     }
-    //add flip
-    //add rise and fall
 }

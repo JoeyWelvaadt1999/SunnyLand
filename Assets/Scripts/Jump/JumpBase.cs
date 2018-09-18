@@ -18,9 +18,7 @@ public class JumpBase : MonoBehaviour {
         if (_currentJumps < _maxJumps)
         {
             _currentJumps++;
-            Debug.Log(_isGrounded);
             _isGrounded = false;
-            Debug.Log(_isGrounded);
             _rb2d.AddForce(_jumpForce, ForceMode2D.Impulse);
         }
 	}

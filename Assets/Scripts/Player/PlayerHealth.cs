@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public delegate void OnDeathDelegate();
     public static event OnDeathDelegate OnDeathEvent;
-
+    
     private PlayerAnimationHandler _playerAnim;
 
     private float _healthPoints;
@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour {
         _finalHealthPoint = Constants.ONEHEALTHPOINT;
         PlayerDamage.OnDamageEvent += DecreaseHealthPoints;
         UpdateUIHealthPoints();
+        WinningHandler.WonTheGameEvent += SetWinAnimation;
     }
 
     void DecreaseHealthPoints()
@@ -49,6 +50,12 @@ public class PlayerHealth : MonoBehaviour {
     void UpdateUIHealthPoints()
     {
         _livesText.text = "Lives: " + _healthPoints.ToString();
+    }
+
+    void SetWinAnimation()
+    {
+        _playerAnim.AnimState = Constants.PLAYERWIN;
+        WinningHandler.WonTheGameEvent -= SetWinAnimation;
     }
 
     public float GetHealthPoints
