@@ -12,7 +12,7 @@ public class PlayerBounce : MonoBehaviour {
         _rd2b = GetComponent<Rigidbody2D>();
         PlayerDamage.OnEnemyHitEvent += Bounce;
         PlayerHealth.OnDeathEvent += Unsubscribe;
-        _bounceForce = new Vector2(0, 7);
+        _bounceForce = new Vector2(0, 500);
 	}
 
     void Bounce()

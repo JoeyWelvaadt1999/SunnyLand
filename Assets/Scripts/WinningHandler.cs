@@ -14,11 +14,8 @@ public class WinningHandler : MonoBehaviour {
     {
         if (collision.gameObject.tag == Constants.PLAYERTAG)
         {
-            //show text that you have won and sent event so that player plays final animation
             _winText.text = "YOU WIN!";
-            //WonTheGameEvent();
-            
-            //add restart and quit button [or enable]
+             WonTheGameEvent();
         }
     }
 }

@@ -47,4 +47,13 @@ public class Constants {
 
     //enemy max jump amount
     public static int ENEMYJUMPAMOUNT => 1;
+
+    public static string TUTORIALTEXT => "Welcome to Sunnyland \n" +
+        "Moving is done with the left and right arrow keys \n" +
+        "Jumping is done with the space bar \n" +
+        "Dash with X, so know let's try to find home! \n" +
+        "Be careful of some other animals, \n" +
+        "Jump on them to get rid of them! \n" +
+        "Get some cherries and gems on the way! \n" +
+        "Have fun playing XD";
 }

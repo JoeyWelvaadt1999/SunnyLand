@@ -333,14 +333,16 @@
     <Compile Include="Assets\Scripts\Jump\EnemyJump.cs" />
     <Compile Include="Assets\Scripts\Jump\JumpBase.cs" />
     <Compile Include="Assets\Scripts\Jump\PlayerJump.cs" />
+    <Compile Include="Assets\Scripts\LoseHandler.cs" />
     <Compile Include="Assets\Scripts\Movement\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\Disabler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationHandler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBounce.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDamage.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Player\Score.cs" />
-    <Compile Include="Assets\Scripts\Player\TestPlayerScript.cs" />
+    <Compile Include="Assets\Scripts\TextWriter.cs" />
     <Compile Include="Assets\Scripts\Utils\SpriteFlipper.cs" />
     <Compile Include="Assets\Scripts\WinningHandler.cs" />
   </ItemGroup>
