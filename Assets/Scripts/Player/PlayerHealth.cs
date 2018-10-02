@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	//In this function the health is decreased by one everytime this function is called.
 
-    void DecreaseHealthPoints()
+	public void DecreaseHealthPoints()
     {
         if (_healthPoints > _finalHealthPoint)
         {
@@ -44,6 +44,8 @@ public class PlayerHealth : MonoBehaviour {
             UpdateUIHealthPoints();
             _playerAnim.AnimState = Constants.PLAYERDEATH;
         }
+
+		Debug.Log (_healthPoints);
     }
 
     void Die()
@@ -55,7 +57,7 @@ public class PlayerHealth : MonoBehaviour {
 
     void UpdateUIHealthPoints()
     {
-        _livesText.text = "Lives: " + _healthPoints.ToString();
+//        _livesText.text = "Lives: " + _healthPoints.ToString();
     }
 
     void SetWinAnimation()

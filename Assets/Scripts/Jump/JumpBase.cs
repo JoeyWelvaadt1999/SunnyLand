@@ -10,6 +10,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class JumpBase : MonoBehaviour {
+	
 	[SerializeField]protected Vector2 _jumpForce;
 	protected Rigidbody2D _rb2d;
     protected AudioSource[] _audioSource;
@@ -28,20 +29,21 @@ public class JumpBase : MonoBehaviour {
 	}
 
 	protected virtual void Jump() {
-        if (_currentJumps < _maxJumps)
+		
+        if (_isGrounded)
         {
             _jumpAudio.Play();
-            _currentJumps++;
+//            _currentJumps++;
             _isGrounded = false;
             _rb2d.AddForce(_jumpForce, ForceMode2D.Impulse);
         }
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision){
+	private void OnCollisionStay2D(Collision2D collision){
         if (collision.gameObject.layer == Constants.PLATFORMLAYER)
         {
             _isGrounded = true;
-            _currentJumps = 0;
+//            _currentJumps = 0;
         }
 	}
 
@@ -52,6 +54,7 @@ public class JumpBase : MonoBehaviour {
             _isGrounded = false;
         }
     }
+
     
 
     public bool GetGrounded

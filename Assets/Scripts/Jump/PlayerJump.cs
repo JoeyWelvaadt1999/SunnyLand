@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerAnimationHandler))]
 public class PlayerJump : JumpBase
 {
+	
     private PlayerAnimationHandler _animHandler;
 
     private PlayerDamage _playerDamage;
@@ -26,6 +27,7 @@ public class PlayerJump : JumpBase
 
     void Update()
     {
+		
         InputCallback ic = new InputCallback();
         ic.KeyDown = Jump;
 
