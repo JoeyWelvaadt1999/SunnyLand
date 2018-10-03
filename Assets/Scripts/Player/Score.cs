@@ -14,7 +14,7 @@ public class Score : MonoBehaviour {
 	// In this function will everything be initialized and the delegates will be added. 
     void Start()
     {
-        Collectible.OnHitEvent += UpdateScore;
+        
         PlayerHealth.OnDeathEvent += Unsubscribe;
 
         _score = 0;
@@ -30,7 +30,7 @@ public class Score : MonoBehaviour {
 	//Here the delegates will be removed so that they cant be called anymore.
     void Unsubscribe()
     {
-        Collectible.OnHitEvent -= UpdateScore;
+        
         PlayerHealth.OnDeathEvent -= Unsubscribe;
     }
 

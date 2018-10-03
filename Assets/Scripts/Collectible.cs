@@ -8,8 +8,6 @@ using UnityEngine;
 /// </summary>
 public class Collectible : MonoBehaviour {
 
-    public delegate void OnHitDelegate();
-    public static event OnHitDelegate OnHitEvent;
 
     private AudioSource _audioSource;
 
@@ -25,7 +23,8 @@ public class Collectible : MonoBehaviour {
     {
         if (collision.gameObject.tag == Constants.PLAYERTAG)
         {
-            OnHitEvent();
+			PlayerInventory pi = collision.GetComponent<PlayerInventory> ();
+			pi.Inventory.AddToInventory (this);
             _audioSource.Play();
             _anim.Play(Constants.ITEMFEEDBACKANIMATION);
         }

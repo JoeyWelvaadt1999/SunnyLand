@@ -5,50 +5,50 @@ public class Constants {
     ///This class is used to store 'magic numbers' and 'magic words'
 
     //Some animation names that are being played once
-    public static string ITEMFEEDBACKANIMATION => "ItemFeedbackAnimation";
-    public static string ENEMYDEATHANIMATION => "EnemyDeathAnimation";
+    public const string ITEMFEEDBACKANIMATION = "ItemFeedbackAnimation";
+    public const string ENEMYDEATHANIMATION = "EnemyDeathAnimation";
 
     //some tags that are defined in the editor
-    public static string PLAYERTAG => "Player";
-    public static string ENEMYTAG => "Enemy";
-    public static string FROGTAG => "Frog";
-    public static string POSSUMTAG => "Possum";
-    public static string EAGLETAG => "Eagle";
+    public const string PLAYERTAG = "Player";
+    public const string ENEMYTAG = "Enemy";
+    public const string FROGTAG = "Frog";
+    public const string POSSUMTAG = "Possum";
+    public const string EAGLETAG = "Eagle";
 
     //The player animations that are tied to an integer in the animator component
-    public static int PLAYERIDLE => 0;
-    public static int PLAYERRUN => 1;
-    public static int PLAYERDAMAGE => 2;
-    public static int PLAYERRISE => 3;
-    public static int PLAYERFALL => 4;
-    public static int PLAYERDASH => 5;
-    public static int PLAYERWIN => 6;
-    public static int PLAYERDEATH => 7;
+    public const int PLAYERIDLE = 0;
+    public const int PLAYERRUN = 1;
+    public const int PLAYERDAMAGE = 2;
+    public const int PLAYERRISE = 3;
+    public const int PLAYERFALL = 4;
+    public const int PLAYERDASH = 5;
+    public const int PLAYERWIN = 6;
+    public const int PLAYERDEATH = 7;
 
     //the frog enemy animations that are tied to an integer in the animator component
-    public static int FROGIDLE => 0;
-    public static int FROGRISE => 1;
-    public static int FROGFALL => 2;
-    public static int FROGDEATH => 3;
+    public const int FROGIDLE = 0;
+    public const int FROGRISE = 1;
+    public const int FROGFALL = 2;
+    public const int FROGDEATH = 3;
 
     //some stats of the player
-    public static int PLAYERJUMPAMOUNT => 2;
-    public static float ONEHEALTHPOINT => 1f;
-    public static float HALFPLAYERSIZE => 0.5f;
-    public static float STARTINGHEALTHPOINTS => 5f;
-    public static float FACINGVALUE => -1f;
-    public static string FACINGLEFT => "left";
-    public static string FACINGRIGHT => "right";
+    public const int PLAYERJUMPAMOUNT = 2;
+    public const float ONEHEALTHPOINT = 1f;
+    public const float HALFPLAYERSIZE = 0.5f;
+    public const float STARTINGHEALTHPOINTS = 5f;
+    public const float FACINGVALUE = -1f;
+    public const string FACINGLEFT = "left";
+    public const string FACINGRIGHT = "right";
 
 
     //collision layer mask number
-    public static int PLATFORMLAYER => 8;
-    public static int PLAYERLAYER => 10;
+    public const int PLATFORMLAYER = 8;
+    public const int PLAYERLAYER = 10;
 
     //enemy max jump amount
-    public static int ENEMYJUMPAMOUNT => 1;
+    public const int ENEMYJUMPAMOUNT = 1;
 
-    public static string TUTORIALTEXT => "Welcome to Sunnyland \n" +
+    public const string TUTORIALTEXT = "Welcome to Sunnyland \n" +
         "Moving is done with the left and right arrow keys \n" +
         "Jumping is done with the space bar \n" +
         "Downward jump with the Down arrow key \n" +
