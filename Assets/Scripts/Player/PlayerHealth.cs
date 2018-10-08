@@ -15,8 +15,11 @@ public class PlayerHealth : MonoBehaviour {
     private PlayerAnimationHandler _playerAnim; //An instance of the player animation handler.
 
     private float _healthPoints; //This is the amount of health the player has.
+	private float _startHealth;
     private float _finalHealthPoint;
-    public Text _livesText;
+
+	[SerializeField] private GameObject[] _lives;
+
 
     // Use this for initialization
     void Start()
@@ -25,27 +28,28 @@ public class PlayerHealth : MonoBehaviour {
         _healthPoints = Constants.STARTINGHEALTHPOINTS;
         _finalHealthPoint = Constants.ONEHEALTHPOINT;
         PlayerDamage.OnDamageEvent += DecreaseHealthPoints;
-        UpdateUIHealthPoints();
         WinningHandler.WonTheGameEvent += SetWinAnimation;
+
+		_startHealth = _healthPoints;
     }
 
 	//In this function the health is decreased by one everytime this function is called.
 
 	public void DecreaseHealthPoints()
     {
-        if (_healthPoints > _finalHealthPoint)
+        if (_healthPoints > 1)
         {
             _healthPoints--;
             UpdateUIHealthPoints();
+
         }
         else
         {
-            _healthPoints--;
+			_healthPoints--;
             UpdateUIHealthPoints();
             _playerAnim.AnimState = Constants.PLAYERDEATH;
+//			Die ();
         }
-
-		Debug.Log (_healthPoints);
     }
 
     void Die()
@@ -57,7 +61,7 @@ public class PlayerHealth : MonoBehaviour {
 
     void UpdateUIHealthPoints()
     {
-//        _livesText.text = "Lives: " + _healthPoints.ToString();
+		Destroy (_lives [(int)_healthPoints].gameObject);	
     }
 
     void SetWinAnimation()

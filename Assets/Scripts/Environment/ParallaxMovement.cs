@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ParallaxMovement : MonoBehaviour {
     [SerializeField] private float _speed;
+	[SerializeField] private Camera _camera;
     private Vector3 _startPos;
 	// Use this for initialization
 	void Start () {
@@ -15,12 +16,12 @@ public class ParallaxMovement : MonoBehaviour {
 	}
 	
 	// Every frame this function checks which way the player is walking and will move this object the opposite way.
-	void Update () {
+	void LateUpdate () {
         float x = Input.GetAxis("Horizontal");
 
         Vector3 tPos = transform.position;
         tPos.x -= x * Time.deltaTime * _speed;
-        tPos.y = Camera.main.transform.position.y + _startPos.y;
+		tPos.y = _camera.transform.position.y + _startPos.y;
         transform.position = tPos;
 
 	}

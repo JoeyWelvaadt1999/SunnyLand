@@ -14,6 +14,7 @@ public class Constants {
     public const string FROGTAG = "Frog";
     public const string POSSUMTAG = "Possum";
     public const string EAGLETAG = "Eagle";
+	public const string TRAPTAG = "Trap";
 
     //The player animations that are tied to an integer in the animator component
     public const int PLAYERIDLE = 0;

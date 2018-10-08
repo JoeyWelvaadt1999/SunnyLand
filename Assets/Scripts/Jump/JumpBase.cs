@@ -17,8 +17,6 @@ public class JumpBase : MonoBehaviour {
     protected AudioSource _jumpAudio;
     
 	protected bool _isGrounded;
-    protected int _maxJumps;
-    protected int _currentJumps;
 
 
     
@@ -33,9 +31,10 @@ public class JumpBase : MonoBehaviour {
         if (_isGrounded)
         {
             _jumpAudio.Play();
-//            _currentJumps++;
-            _isGrounded = false;
-            _rb2d.AddForce(_jumpForce, ForceMode2D.Impulse);
+            
+			_rb2d.velocity = new Vector3(_jumpForce.x, (_jumpForce.y / _rb2d.mass) / _rb2d.gravityScale, 0);
+			_isGrounded = false;
+
         }
 	}
 
@@ -43,7 +42,6 @@ public class JumpBase : MonoBehaviour {
         if (collision.gameObject.layer == Constants.PLATFORMLAYER)
         {
             _isGrounded = true;
-//            _currentJumps = 0;
         }
 	}
 

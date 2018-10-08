@@ -36,10 +36,10 @@ public class PlayerDamage : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		//check wether you are colliding with one of the enemies
-		if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG)
+		if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG || collision.gameObject.tag == Constants.TRAPTAG)
 		{
 			//checks to see if the enemy collider bounds center point are lower than the player collider bounds center point
-			if (collision.bounds.center.y < _collider.bounds.center.y)
+			if (collision.bounds.center.y < _collider.bounds.center.y &&  collision.gameObject.tag != Constants.TRAPTAG)
 			{
 				OnEnemyHitEvent();
 				OnEnemyDeathEvent(collision.gameObject.tag);

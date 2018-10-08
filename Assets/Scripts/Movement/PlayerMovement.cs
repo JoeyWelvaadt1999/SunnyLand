@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 	//In the case that none of these buttons are pressed, meaning the player is standing still. The idle animation will play.
     void Move()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector2.left.normalized * Time.deltaTime * _moveSpeed);
             _flipper.Flip(Constants.FACINGLEFT);
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 _animHandler.AnimState = Constants.PLAYERRUN;
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right.normalized * Time.deltaTime * _moveSpeed);
             _flipper.Flip(Constants.FACINGRIGHT);
@@ -70,9 +70,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) && _playerJump.GetGrounded && !_playerDamage.IsDamaged)
+        if (Input.GetKeyDown(KeyCode.S) && _playerJump.GetGrounded && !_playerDamage.IsDamaged)
         {
-            _box2D.isTrigger = true;
+//            _box2D.isTrigger = true;
             _animHandler.AnimState = Constants.PLAYERDASH;
         }
 

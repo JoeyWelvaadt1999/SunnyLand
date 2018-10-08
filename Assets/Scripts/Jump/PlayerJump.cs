@@ -6,7 +6,7 @@ using UnityEngine;
 /// Player jump.
 /// The player jumps gets its functionallity from the jump base.
 /// </summary>
-[RequireComponent(typeof(PlayerAnimationHandler))]
+//[RequireComponent(typeof(PlayerAnimationHandler))]
 public class PlayerJump : JumpBase
 {
 	
@@ -19,14 +19,19 @@ public class PlayerJump : JumpBase
     protected override void Start()
     {
         base.Start();
+		float height = Camera.main.orthographicSize * 2f;
+
+
         _animHandler = GetComponent<PlayerAnimationHandler>();
         _playerDamage = GetComponent<PlayerDamage>();
-        _maxJumps = Constants.PLAYERJUMPAMOUNT;
-        _currentJumps = 0;
+        
+        
     }
 
-    void Update()
+    void FixedUpdate()
     {
+
+
 		
         InputCallback ic = new InputCallback();
         ic.KeyDown = Jump;

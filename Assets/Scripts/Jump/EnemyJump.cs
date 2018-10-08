@@ -17,8 +17,8 @@ public class EnemyJump : JumpBase {
     protected override void Start()
     {
         base.Start();
-        _currentJumps = 0;
-        _maxJumps = Constants.ENEMYJUMPAMOUNT;
+//        _currentJumps = 0;
+//        _maxJumps = Constants.ENEMYJUMPAMOUNT;
         _anim = GetComponent<Animator>();
         _flipper = GetComponent<SpriteFlipper>();
     }
