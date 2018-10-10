@@ -26,5 +26,9 @@ public class PlayerAnimationHandler : MonoBehaviour {
         {
             _anim.SetInteger("AnimState", value);
         }
+
+        get {
+            return _anim.GetInteger("AnimState");
+        }
     }
 }

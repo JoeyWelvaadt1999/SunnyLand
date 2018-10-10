@@ -30,13 +30,21 @@ public class EnemyMovement : MonoBehaviour {
 
 		if (transform.position == _path [_index].position) {
 			if (_forward) {
-                _flipper.Flip(Constants.FACINGLEFT);
+                
 				_index++;
 			} else {
-                _flipper.Flip(Constants.FACINGRIGHT);
+                
 				_index--;
 			}
 		}
+
+        if (transform.position.x < _path[_index].position.x)
+        {
+            _flipper.Flip(Constants.FACINGLEFT);
+        }
+        else {
+            _flipper.Flip(Constants.FACINGRIGHT);
+        }
 
 		if (_index == _path.Length - 1) {
 			_forward = false;

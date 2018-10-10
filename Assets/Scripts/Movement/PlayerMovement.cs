@@ -70,11 +70,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && _playerJump.GetGrounded && !_playerDamage.IsDamaged)
-        {
-//            _box2D.isTrigger = true;
-            _animHandler.AnimState = Constants.PLAYERDASH;
-        }
+
 
     }
 

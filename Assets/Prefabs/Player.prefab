@@ -94,7 +94,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.16
+  m_Mass: 0.155
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -126,7 +126,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.4}
+  m_Size: {x: 1.13, y: 1.4}
   m_EdgeRadius: 0
 --- !u!82 &82215469983989050
 AudioSource:
@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8949c43e4f85dc49bed412b3e7b4985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bounceForce: {x: 0, y: 2.5}
 --- !u!114 &114625701842472800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +315,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414bbec0f688ce84c917d36a35e72fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _livesImage: {fileID: 0}
+  _lives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114947292489735414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,7 +338,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1483656769096140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3602a496e83adc47bf8f72367f7da0f, type: 3}
   m_Name: 

@@ -31,8 +31,6 @@ public class PlayerJump : JumpBase
     void FixedUpdate()
     {
 
-
-		
         InputCallback ic = new InputCallback();
         ic.KeyDown = Jump;
 
@@ -44,6 +42,7 @@ public class PlayerJump : JumpBase
             float currentY = transform.position.y;
             if (currentY - _lastY > 0)
             {
+
                 _animHandler.AnimState = Constants.PLAYERRISE;
                
             }
@@ -54,5 +53,7 @@ public class PlayerJump : JumpBase
             }
             _lastY = currentY;
         }
+
+       
     }
 }

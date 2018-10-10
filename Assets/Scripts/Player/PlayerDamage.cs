@@ -22,6 +22,8 @@ public class PlayerDamage : MonoBehaviour {
 
     private PlayerHealth _playerhealth;
 
+    private float _waitForDamage;
+
 
     private void Start()
     {
@@ -29,11 +31,11 @@ public class PlayerDamage : MonoBehaviour {
         _collider = GetComponent<Collider2D>();
         _playerhealth = GetComponent<PlayerHealth>();
         IsDamaged = false;
+        
     }
 
-
-	//checks for triggering collision
-	private void OnTriggerEnter2D(Collider2D collision)
+    //checks for triggering collision
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		//check wether you are colliding with one of the enemies
 		if (collision.gameObject.tag == Constants.POSSUMTAG || collision.gameObject.tag == Constants.FROGTAG || collision.gameObject.tag == Constants.EAGLETAG || collision.gameObject.tag == Constants.TRAPTAG)
@@ -56,9 +58,30 @@ public class PlayerDamage : MonoBehaviour {
 		}
 	}
 
-	//function that is called after the 'damaged' animation is over
-	void SetDamaged()
-	{
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(!IsDamaged) {
+            _waitForDamage += Time.deltaTime;
+            if (_waitForDamage > 1f)
+            {
+                if (collision.gameObject.tag == Constants.TRAPTAG)
+                {
+
+                    if (_playerhealth.GetHealthPoints > 1f)
+                    {
+                        IsDamaged = true;
+                    }
+                    _playerAnim.AnimState = Constants.PLAYERDAMAGE;
+                    OnDamageEvent();
+                    _waitForDamage = 0f;
+                    Debug.Log("Getting damaged" + _playerAnim.AnimState);
+                }
+            }
+        }
+    }
+
+    //function that is called after the 'damaged' animation is over
+    void SetDamaged()
+    { 
 		IsDamaged = false;
 	}
 
